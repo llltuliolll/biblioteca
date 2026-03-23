@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Lista de Editoras</h2>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Site/Contato</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for editora in editoras %}
+                <tr>
+                    <td>{{ editora.nome }}</td>
+                    <td>{{ editora.cidade }}</td>
+                    <td>{{ editora.site }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

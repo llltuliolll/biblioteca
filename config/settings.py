@@ -81,9 +81,3 @@ STATICFILES_DIRS = [
 os.path.join(BASE_DIR, "app/static/"),
 ]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-from django.contrib import admin
-from django.urls import include, path
-from app.views import *
-urlpatterns = [
-path('admin/', admin.site.urls),
-]

@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Controle de Reservas e Empréstimos</h2>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Leitor</th>
+                <th scope="col">Livro</th>
+                <th scope="col">Data da Reserva</th>
+                <th scope="col">Data de Devolução</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.leitor }}</td>
+                    <td>{{ reserva.livro }}</td>
+                    <td>{{ reserva.data_reserva|date:"d/m/Y" }}</td>
+                    <td>{{ reserva.data_devolucao|date:"d/m/Y" }}</td>
+                    <td>
+                        {% if reserva.status == 'Atrasado' %}
+                            <span class="badge badge-danger">Atrasado</span>
+                        {% else %}
+                            <span class="badge badge-success">{{ reserva.status }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted">Nenhuma reserva encontrada.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
